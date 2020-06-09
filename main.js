@@ -24,7 +24,7 @@ $(document).ready(
         //imposto l'altro click
         $('.prev').click(
             function() {
-                alert('prova');
+                scorriLeImmaginiIndietro();
             }
         );       
         
@@ -70,6 +70,17 @@ function scorriLeImmagini() {
 
 }
 
-// function scorriLeImmaginiIndietro() {
+function scorriLeImmaginiIndietro() {
 
-// }
+    // posso riutilizzare le stesse variabili perchè sono all'interno di un'altra funzione. cercherò di replicare lo stesso procedimento di prima, usando soltanto la funzione prev()
+    // per scorrere indietro le immagini.
+    var immagineCorrente = $('.images img.active');
+
+    immagineCorrente.removeClass('active');
+
+    if (immagineCorrente.hasClass('first')) {
+        $('.images img.last').addClass('active');
+    } else {
+        immagineCorrente.prev().addClass('active');
+    }
+}
