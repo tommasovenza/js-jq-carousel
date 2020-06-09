@@ -76,11 +76,16 @@ function scorriLeImmaginiIndietro() {
     // per scorrere indietro le immagini.
     var immagineCorrente = $('.images img.active');
 
-    immagineCorrente.removeClass('active');
+    var cerchioCorrenteContrario = $('.nav i.active');
 
-    if (immagineCorrente.hasClass('first')) {
+    immagineCorrente.removeClass('active');
+    cerchioCorrenteContrario.removeClass('active');
+
+    if (immagineCorrente.hasClass('first'), cerchioCorrenteContrario.hasClass('first')) {
         $('.images img.last').addClass('active');
+        $('.nav i.last').addClass('active');
     } else {
         immagineCorrente.prev().addClass('active');
+        cerchioCorrenteContrario.prev().addClass('active');
     }
 }
