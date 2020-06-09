@@ -24,5 +24,12 @@ $(document).ready(
 
 
 function scorriLeImmagini() {
-    alert('prova click nella funzione')
+
+    // creo una variabile e la inizializzo all'immagine attiva in quel momento come scritto in html
+    var immagineCorrente = jQuery('.images img.active');
+    // vado a rimuoverne la classe active che me la visualizza a schermo, per attribuirla alla successiva immagine
+    immagineCorrente.removeClass('active');
+    // ho capito poco questo passaggio, tra la nuova proprietà next e la stringa 'img' passatavi dentro
+    immagineCorrente.next('img').addClass('active');
+
 }
