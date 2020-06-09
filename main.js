@@ -21,13 +21,13 @@ $(document).ready(
 
         );
 
-        //imposto il click sull'altro target, il prev
-
+        //imposto l'altro click
         $('.prev').click(
             function() {
-                alert('click di prova');
+                alert('prova');
             }
-        );
+        );       
+        
     }
 );
 
@@ -69,3 +69,7 @@ function scorriLeImmagini() {
     }
 
 }
+
+// function scorriLeImmaginiIndietro() {
+
+// }
