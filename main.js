@@ -16,8 +16,13 @@ $(document).ready(
         // imposto il click
         $('.next').click(
             function() {
-                alert('test');
+                scorriLeImmagini();
             }
-        )
+        );
     }
 );
+
+
+function scorriLeImmagini() {
+    alert('prova click nella funzione')
+}
