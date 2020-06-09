@@ -18,6 +18,15 @@ $(document).ready(
             function () {
                 scorriLeImmagini();
             }
+
+        );
+
+        //imposto il click sull'altro target, il prev
+
+        $('.prev').click(
+            function() {
+                alert('click di prova');
+            }
         );
     }
 );
@@ -31,8 +40,6 @@ function scorriLeImmagini() {
     // facciamo i cerchietti
 
     var cerchioCorrente = $('.nav i.active');
-
-
 
     // vado a rimuoverne la classe active che me la visualizza a schermo, per attribuirla alla successiva immagine
     // immagineCorrente.removeClass('active');
@@ -60,6 +67,5 @@ function scorriLeImmagini() {
         immagineCorrente.next('img').addClass('active');
         cerchioCorrente.next().addClass('active');
     }
-
 
 }
