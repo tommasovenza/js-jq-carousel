@@ -6,16 +6,16 @@
 // Attenzione a dove dichiarate le variabili che contengono gli elementi html, lo scopo è importante
 
 
+
+// 1. vado a leggere la documentazione di jQuery per ricordare le funzioni next() e prev()
+
 // imposto il document ready
-
-// vado a leggere la documentazione di jQuery per ricordare le funzioni next() e prev()
-
 $(document).ready(
-    function() {
+    function () {
 
         // imposto il click
         $('.next').click(
-            function() {
+            function () {
                 scorriLeImmagini();
             }
         );
@@ -26,10 +26,32 @@ $(document).ready(
 function scorriLeImmagini() {
 
     // creo una variabile e la inizializzo all'immagine attiva in quel momento come scritto in html
-    var immagineCorrente = jQuery('.images img.active');
+    var immagineCorrente = $('.images img.active');
+
     // vado a rimuoverne la classe active che me la visualizza a schermo, per attribuirla alla successiva immagine
+    // immagineCorrente.removeClass('active');
+    // // ho capito poco questo passaggio, tra la nuova proprietà next() e la stringa 'img' passatavi dentro
+    // immagineCorrente.next('img').addClass('active');
+
+    // se l'ultimo elemento corrente, ha anche classe (.last) il next deve tornare al primo elemento con classe .first
+
+
+    // quindi il codice diventa:
+
+    // questo, nel mio programma, accade sempre in modo tale da poter rimuovere sempre la classe active e darla all'elemento successivo con la funzione next()
     immagineCorrente.removeClass('active');
-    // ho capito poco questo passaggio, tra la nuova proprietà next e la stringa 'img' passatavi dentro
-    immagineCorrente.next('img').addClass('active');
+
+    // // con la funzione next scorro le foto attribuendo loro la classe .active finchè non troverò l'ultimo elemento avente classe .last // questa funzione va copincollata sotto
+    // immagineCorrente.next('img').addClass('active');
+
+    // se l'immagine corrente ha classe .last...
+    if (immagineCorrente.hasClass('last')) {
+        // prendi la prima immagine con classe first e dagli classe active!    ... in questo modo il loop riparte da capo
+        $('.images img.first').addClass('active');
+    } else {
+        // con la funzione next scorro le foto attribuendo loro la classe .active finchè non troverò l'ultimo elemento avente classe .last // questa funzione va copincollata sotto
+        immagineCorrente.next('img').addClass('active');
+    }
+
 
 }
